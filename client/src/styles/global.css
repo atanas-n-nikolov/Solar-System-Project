@@ -103,6 +103,20 @@ ul {
     transform: scale(1.05);
 }
 
+.c-planet {
+    box-shadow: 0 0.25em 0.6em rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.c-planet:hover {
+    transform: translateY(-0.6em);
+    box-shadow: 0 0.5em 1.25em rgba(0, 0, 0, 0.15);
+}
+
+.r-form {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
 .action-btn {
     @apply relative bg-[#1E90FF] no-underline text-white px-[2em] py-[0.5em] rounded-[0.3em] border-none text-[1.2em] cursor-pointer z-[1] overflow-hidden transition-all duration-300 ease-in-out hover:bg-[#0056b3] hover:rounded-[1.2em] after:content-[''] after:absolute after:inset-0 after:rounded-[0.3em] after:-z-10 after:transition-all after:duration-300 hover:after:rounded-[0.3em] inline-block
 }

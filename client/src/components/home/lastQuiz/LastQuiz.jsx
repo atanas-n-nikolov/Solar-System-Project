@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 export default function LastQuiz() {
     return (
-        <section className="flex items-baseline justify-between max-w-[1400px] gap-[4em] !pt-[5em] !pb-[5em]">
+        <section className="flex items-baseline justify-between max-w-[1400px] gap-[4em] !pt-[10em] !pb-[10em]">
             <section className="flex-1">
                 <h1 className="text-[2.5em] text-[#2c3e50] !mb-[1.5em] font-bold">Welcome, Space Traveler!</h1>
                 <p className="text-[1.2em] text-[#333] !mb-[2em] leading-[1.6] italic">
