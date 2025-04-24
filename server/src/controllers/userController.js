@@ -115,19 +115,4 @@ userController.delete('/profile/:userId', isAuth, asyncHandler(async (req, res) 
     return res.status(200).json({ message: i18next.t('userDeleted') });
 }));
 
-userController.put('/profile/:userId/lang', isAuth, (req, res) => {
-    const { lang } = req.body;
-
-    if (lang && ['en', 'bg'].includes(lang)) {
-        res.cookie('myLang', lang, {
-            maxAge: 900000,
-            httpOnly: true,
-            sameSite: 'Strict'
-        });
-        return res.status(204);
-    } else {
-        return res.status(400).json({ message: i18next.t('invalidLanguageSelection') });
-    }
-});
-
 export default userController;

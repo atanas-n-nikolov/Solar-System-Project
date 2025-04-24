@@ -1,0 +1,41 @@
+{
+    "header": {
+        "home": "Home",
+        "planets": "Planets",
+        "quiz": "Quiz",
+        "signUp": "Sign Up",
+        "logout": "Logout",
+        "languageEn": "English",
+        "languageBg": "Bulgarian"
+    },
+    "hero": {
+        "h1": "Explore the Solar System",
+        "p": "Learn everything about planets, stars, and space exploration!",
+        "btn": "Start Now"
+    },
+    "home": {
+        "h1": "Journey Through the Solar System"
+    },
+    "slider": {
+        "btn": "Learn more"
+    },
+    "fact": {
+        "span1": "DID YOU KNOW",
+        "span2": "ON THIS DAY ...",
+        "span3": "IN:",
+        "span4": "THE:",
+        "span5": "DESC:",
+        "noFactMessage": "Oops! It seems there’s no fact available for today.",
+        "noFactAddedYet": "Check back tomorrow for a fresh new fact!"
+    },
+    "latestQuiz": {
+        "h1": "Welcome, Space Traveler!",
+        "p1": "Ready to test your knowledge across the cosmos? Embark on a thrilling journey through quizzes of all levels, from the basics of space exploration to the mysteries of distant galaxies. Challenge yourself with different missions and see how far you can go! Answer questions, earn points, and rise through the ranks as you prove your knowledge. Whether you're a Cadet or an experienced Explorer, there's always a new mission to conquer and a higher rank to achieve. Track your progress, compete with others, and see who leads the cosmic leaderboard! Choose your mission, get ready, and launch it!",
+        "btn1": "Start Your Quiz Quest",
+        "h2": "Last Added Quiz",
+        "p2": "Mission Level:",
+        "btn2": "Start Mission",
+        "noQuizMessage": "Oops, no quizzes available for today. Please check back later!",
+        "noQuizAddedYet": "We're working on adding new quizzes. Come back soon for exciting challenges!"
+    }
+}

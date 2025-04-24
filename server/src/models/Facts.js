@@ -15,14 +15,28 @@ const dayFactsSchema = new Schema({
     required: [true, 'Fact year is required.'],
   },
   title: {
-    type: String,
-    minLength: [5, 'Fact title should be at least 5 characters long.'],
-    required: [true, 'Fact title is required.'],
+    en: {
+      type: String,
+      minLength: [5, 'Fact title should be at least 5 characters long.'],
+      required: [true, 'Fact title is required.'],
+    },
+    bg: {
+      type: String,
+      minLength: [5, 'Fact title should be at least 5 characters long.'],
+      required: [true, 'Fact title is required.'],
+    }
   },
   description: {
-    type: String,
-    minLength: [10, 'Fact description should be at least 10 characters long.'],
-    required: [true, 'Fact description is required.'],
+    en: {
+      type: String,
+      minLength: [10, 'Fact description should be at least 10 characters long.'],
+      required: [true, 'Fact description is required.'],
+    },
+    bg: {
+      type: String,
+      minLength: [10, 'Fact description should be at least 10 characters long.'],
+      required: [true, 'Fact description is required.'],
+    }
   },
   ownerId: {
     type: Types.ObjectId,

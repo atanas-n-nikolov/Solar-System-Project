@@ -21,4 +21,19 @@ homeController.get('/', asyncHandler(async (req, res) => {
     });
 }));
 
+homeController.put('/lang', (req, res) => {
+    const { lang } = req.body;
+
+    if (lang && ['en', 'bg'].includes(lang)) {
+        res.cookie('myLang', lang, {
+            maxAge: 900000,
+            httpOnly: false,
+            sameSite: 'Lax'
+        });
+        return res.sendStatus(204);
+    } else {
+        return res.status(400).json({ message: i18next.t('invalidLanguageSelection') });
+    }
+});
+
 export default homeController;

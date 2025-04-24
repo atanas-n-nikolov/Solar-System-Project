@@ -2,17 +2,34 @@ import { Schema, Types, model } from 'mongoose';
 
 const planetSchema = new Schema({
   name: {
-    type: String,
-    minLenght: [3, 'Planet name should be at least 3 characters long.'],
-    required: [true, 'Planet name is required.'],
+    en: {
+      type: String,
+      minLenght: [3, 'Planet name should be at least 3 characters long.'],
+      required: [true, 'Planet name is required.'],
+    },
+    bg: {
+      type: String,
+      minLenght: [3, 'Planet name should be at least 3 characters long.'],
+      required: [true, 'Planet name is required.'],
+    }
   },
   type: {
-    type: String,
-    required: [true, 'Planet type is required.'],
-    enum: {
-      values: ['Star', 'Planet'],
-      message: 'Planet type must be one of: Star, Planet',
+    en: {
+      type: String,
+      required: [true, 'Planet type is required.'],
+      enum: {
+        values: ['Star', 'Planet'],
+        message: 'Planet type must be one of: Star, Planet',
+      }
     },
+    bg: {
+      type: String,
+      required: [true, 'Planet type is required.'],
+      enum: {
+        values: ['Star', 'Planet'],
+        message: 'Planet type must be one of: Star, Planet',
+      }
+    }
   },
   image: {
     type: String,
@@ -31,9 +48,16 @@ const planetSchema = new Schema({
     required: [true, 'Planet size is required.'],
   },
   description: {
-    type: String,
-    minLenght: [10, 'Planet description should be at least 10 characters long.'],
-    required: [true, 'Planet description is required.'],
+    en: {
+      type: String,
+      minLenght: [10, 'Planet description should be at least 10 characters long.'],
+      required: [true, 'Planet description is required.'],
+    },
+    bg: {
+      type: String,
+      minLenght: [10, 'Planet description should be at least 10 characters long.'],
+      required: [true, 'Planet description is required.'],
+    }
   },
   order: {
     type: Number,

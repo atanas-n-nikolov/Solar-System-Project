@@ -7,17 +7,34 @@ const quizSchema = new Schema({
     required: true,
   },
   title: {
-    type: String,
-    required: [true, 'Quiz title is required.'],
-    minlength: [5, 'Quiz title must be at least 5 characters long.'],
+    en: {
+      type: String,
+      required: [true, 'Quiz title is required.'],
+      minlength: [5, 'Quiz title must be at least 5 characters long.'],
+    },
+    bg: {
+      type: String,
+      required: [true, 'Quiz title is required.'],
+      minlength: [5, 'Quiz title must be at least 5 characters long.'],
+    }
   },
   category: {
-    type: String,
-    enum: {
-      values: ['Cadet', 'Pilot', 'Commander', 'Admiral'],
-      message: 'Category must be one of: cadet, pilot, commander, or admiral.',
+    en: {
+      type: String,
+      enum: {
+        values: ['Cadet', 'Pilot', 'Commander', 'Admiral'],
+        message: 'Category must be one of: cadet, pilot, commander, or admiral.',
+      },
+      required: [true, 'Please select a category.'],
     },
-    required: [true, 'Please select a category.'],
+    bg: {
+      type: String,
+      enum: {
+        values: ['Cadet', 'Pilot', 'Commander', 'Admiral'],
+        message: 'Category must be one of: cadet, pilot, commander, or admiral.',
+      },
+      required: [true, 'Please select a category.'],
+    }
   },
   options: {
     type: [String],
