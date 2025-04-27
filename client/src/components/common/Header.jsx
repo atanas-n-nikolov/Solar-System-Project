@@ -26,7 +26,7 @@ export default function Header() {
                     </Link>
                 </section>
                 <nav className="mainNavigation" aria-label="Main navigation">
-                    <ul className="flex justify-around gap-[1.25em]">
+                    <ul className="flex justify-around items-center gap-[1.25em]">
                         <li className="p-header">
                             <Link to="/" className="nav-link">{t('header.home')}</Link>
                         </li>
@@ -60,7 +60,11 @@ export default function Header() {
 
                         <li className="p-header relative">
                             <button onClick={toggleLanguageMenu} className="nav-link flex items-center gap-2">
-                                {language === 'en' ? 'En' : 'Бг'}
+                                <img
+                                    src={language === 'en' ? '/icons/en.ico' : '/icons/bg.ico'}
+                                    alt={language === 'en' ? 'English' : 'Български'}
+                                    className="w-6 h-6 rounded-full object-cover"
+                                />
                             </button>
 
                             {showLanguageMenu && (

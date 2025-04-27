@@ -77,5 +77,12 @@
         "loginP1": "You don't have an account?",
         "loginP2": "Click here to sign up",
         "invalidCredentials": "Invalid email or password"
+    },
+    "planetsCatalog": {
+        "h1": "Solar System Planets",
+        "p": "Welcome, cosmic explorer! Prepare to venture through the vast wonders of our solar system. Discover the secrets of each planet and explore their unique characteristics. Select your planet and begin your celestial journey!",
+        "type": "Type:",
+        "distance": "Distance to Sun:",
+        "size": "Size:"
     }
 }
