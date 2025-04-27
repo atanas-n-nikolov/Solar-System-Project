@@ -32,23 +32,18 @@ const planetSchema = new Schema({
     }
   },
   moons: {
-    en: {
-      type: Number,
-      required: [true, 'Moons is required.'],
-    },
-    bg: {
-      type: Number,
-      required: [true, 'Луната е задължителна.'],
-    }
+    type: Number,
+    required: [true, 'Moons is required. | Луната е задължителна.'],
+    min: [0, 'Moons count should be positive number. | Броят на луните трябва да е положително число.']
   },
-  years: {
+  yearLength: {
     en: {
       type: String,
-      required: [true, 'Years is required.'],
+      required: [true, 'Year length is required.'],
     },
     bg: {
       type: String,
-      required: [true, 'Годините са задължителни.'],
+      required: [true, 'Продължителността на годината е задължителна.'],
     }
   },
   atmosphere: {
@@ -84,19 +79,19 @@ const planetSchema = new Schema({
   image: {
     en: {
       type: String,
-    required: [true, 'Image URL is required.'],
-    match: [
-      /^https?:\/\/.+\.(jpg|jpeg|png|gif|webp|svg)$/i,
-      'Image must be a valid URL ending with .jpg, .jpeg, .png, .gif, .webp, or .svg',
-    ]
+      required: [true, 'Image URL is required.'],
+      match: [
+        /^https?:\/\/.+\.(jpg|jpeg|png|gif|webp|svg)$/i,
+        'Image must be a valid URL ending with .jpg, .jpeg, .png, .gif, .webp, or .svg',
+      ]
     },
     bg: {
       type: String,
-    required: [true, 'Адресът на снимката е задължителен.'],
-    match: [
-      /^https?:\/\/.+\.(jpg|jpeg|png|gif|webp|svg)$/i,
-      'Картинката трябва да бъде валиден URL завършващ на .jpg, .jpeg, .png, .gif, .webp, или .svg',
-    ],
+      required: [true, 'Адресът на снимката е задължителен.'],
+      match: [
+        /^https?:\/\/.+\.(jpg|jpeg|png|gif|webp|svg)$/i,
+        'Картинката трябва да бъде валиден URL завършващ на .jpg, .jpeg, .png, .gif, .webp, или .svg',
+      ],
     }
   },
   distanceToSun: {
@@ -122,13 +117,13 @@ const planetSchema = new Schema({
   description: {
     en: {
       type: String,
-    minLength: [10, 'Description should be at least 10 characters long.'],
-    required: [true, 'Description is required.'],
+      minLength: [10, 'Description should be at least 10 characters long.'],
+      required: [true, 'Description is required.'],
     },
     bg: {
       type: String,
-    minLength: [10, 'Описанието трябва да бъде поне 10 символа.'],
-    required: [true, 'Описанието е задължително.']
+      minLength: [10, 'Описанието трябва да бъде поне 10 символа.'],
+      required: [true, 'Описанието е задължително.']
     }
   },
   order: {

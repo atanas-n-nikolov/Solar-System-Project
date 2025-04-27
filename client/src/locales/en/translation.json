@@ -34,16 +34,20 @@
         "span2": "Distance to Sun:",
         "span3": "Size:",
         "span4": "Moons:",
-        "span5": "Years:",
+        "span5": "Year Length:",
         "span6": "Atmosphere:",
-        "span7": "Namesake:"
+        "span7": "Name Origin:"
     },
     "quiz": {
         "h1": "Quiz Quest",
         "p1": "Welcome, space traveler! Prepare to embark on a journey across galaxies of knowledge. Choose your mission and begin your quest!",
         "h2": "Mission",
         "p2": "Questions",
-        "btn": "Launch Mission"
+        "btn": "Launch Mission",
+        "cadet": "Cadet",
+        "pilot": "Pilot",
+        "commander": "Commander",
+        "admiral": "Admiral"
     },
     "latestQuiz": {
         "h1": "Welcome, Space Traveler!",

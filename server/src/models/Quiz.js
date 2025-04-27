@@ -19,22 +19,12 @@ const quizSchema = new Schema({
     }
   },
   category: {
-    en: {
-      type: String,
-      enum: {
-        values: ['Cadet', 'Pilot', 'Commander', 'Admiral'],
-        message: 'Category must be one of: cadet, pilot, commander, or admiral.',
-      },
-      required: [true, 'Please select a category.']
+    type: String,
+    enum: {
+      values: ['Cadet', 'Pilot', 'Commander', 'Admiral'],
+      message: 'Category must be one of: cadet, pilot, commander, or admiral.',
     },
-    bg: {
-      type: String,
-      enum: {
-        values: ['Кадет', 'Пилот', 'Командир', 'Адмирал'],
-        message: 'Категорията трябва да е една от: кадет, пилот, командир, or адмирал.',
-      },
-      required: [true, 'Моля изберете категория.']
-    }
+    required: [true, 'Please select a category.']
   },
   options: {
     en: {
@@ -61,23 +51,23 @@ const quizSchema = new Schema({
   correctAnswer: {
     en: {
       type: String,
-    required: [true, 'Please provide the correct answer.'],
-    validate: {
-      validator: function (v) {
-        return this.options && this.options.includes(v);
-      },
-      message: 'The correct answer must be one of the provided options.',
-    }
+      required: [true, 'Please provide the correct answer.'],
+      validate: {
+        validator: function (v) {
+          return this.options && this.options.includes(v);
+        },
+        message: 'The correct answer must be one of the provided options.',
+      }
     },
     bg: {
       type: String,
-    required: [true, 'Моля представете верният отговор.'],
-    validate: {
-      validator: function (v) {
-        return this.options && this.options.includes(v);
+      required: [true, 'Моля представете верният отговор.'],
+      validate: {
+        validator: function (v) {
+          return this.options && this.options.includes(v);
+        },
+        message: 'Верният отговор трябва да е от предоставените варианти.',
       },
-      message: 'Верният отговор трябва да е от предоставените варианти.',
-    },
     }
   }
 },

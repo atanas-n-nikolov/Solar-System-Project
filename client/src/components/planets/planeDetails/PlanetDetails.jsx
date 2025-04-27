@@ -1,6 +1,4 @@
 import { useNavigate, useParams } from 'react-router';
-
-
 import {
     FaGlobeAmericas,
     FaSun,
@@ -55,16 +53,16 @@ export default function PlanetDetails() {
                         <span><strong className="block">{t('details.span2')}</strong> {planet.distanceToSun[currentLang]}</span>
                     </div>
                     <div className="infoBox col-span-1">
+                        <FaMoon className="r-icons" />
+                        <span><strong className="block">{t('details.span4')}</strong> {planet.moons}</span>
+                    </div>
+                    <div className="infoBox col-span-1">
                         <FaRulerCombined className="r-icons" />
                         <span><strong className="block">{t('details.span3')}</strong> {planet.size[currentLang]}</span>
                     </div>
-                    <div className="infoBox col-span-1">
-                        <FaMoon className="r-icons" />
-                        <span><strong className="block">{t('details.span4')}</strong> {planet.moons[currentLang]}</span>
-                    </div>
                     <div className="infoBox col-span-2">
                         <FaRegClock className="r-icons" />
-                        <span><strong className="block">{t('details.span5')}</strong> {planet.years[currentLang]}</span>
+                        <span><strong className="block">{t('details.span5')}</strong> {planet.yearLength[currentLang]}</span>
                     </div>
                     <div className="infoBox col-span-3">
                         <FaWind className="r-icons" />

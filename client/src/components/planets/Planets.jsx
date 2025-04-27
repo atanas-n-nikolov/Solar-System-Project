@@ -30,8 +30,8 @@ export default function Planets() {
                             <div className="!pt-[1em]">
                                 <h2 className="text-[1.4em] font-semibold !mb-[0.6em]">{planet.name[currentLang]}</h2>
                                 <p className="text-[#555] !mt-[0.4em] !mb-[0.4em]">{t('planetsCatalog.type')} {planet.type[currentLang]}</p>
-                                <p className="text-[#555] !mt-[0.4em] !mb-[0.4em]">{t('planetsCatalog.distance')} {planet.distanceToSun}</p>
-                                <p className="text-[#555] !mt-[0.4em] !mb-[0.4em]">{t('planetsCatalog.size')} {planet.size}</p>
+                                <p className="text-[#555] !mt-[0.4em] !mb-[0.4em]">{t('planetsCatalog.distance')} {planet.distanceToSun[currentLang]}</p>
+                                <p className="text-[#555] !mt-[0.4em] !mb-[0.4em]">{t('planetsCatalog.size')} {planet.size[currentLang]}</p>
                                 <Link to={`/planet/${planet._id}`} className="action-btn !block !text-center">{t('slider.btn')}</Link>
                             </div>
                         </article>
