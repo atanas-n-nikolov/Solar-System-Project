@@ -6,6 +6,10 @@ import asyncHandler from "../utils/asyncHandler.js";
 
 const homeController = Router();
 
+const ERROR_MESSAGES = {
+    INVALID_LANGUAGE: 'Invalid language selection.',
+};
+
 homeController.get('/', asyncHandler(async (req, res) => {
     const today = new Date();
     const dateString = today.toLocaleDateString('bg-BG', { day: '2-digit', month: '2-digit' });
@@ -17,7 +21,7 @@ homeController.get('/', asyncHandler(async (req, res) => {
     return res.status(200).json({
         fact: fact || null,
         planets: planets.length ? planets : null,
-        latestQuiz: latestQuiz || null
+        latestQuiz: latestQuiz || null,
     });
 }));
 
@@ -28,11 +32,11 @@ homeController.put('/lang', (req, res) => {
         res.cookie('myLang', lang, {
             maxAge: 900000,
             httpOnly: false,
-            sameSite: 'Lax'
+            sameSite: 'Lax',
         });
         return res.sendStatus(204);
     } else {
-        return res.status(400).json({ message: i18next.t('invalidLanguageSelection') });
+        return res.status(400).json({ error: ERROR_MESSAGES.INVALID_LANGUAGE });
     }
 });
 

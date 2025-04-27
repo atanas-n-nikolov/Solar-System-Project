@@ -5,7 +5,8 @@ async function request(method, url, data = null) {
         method: method,
         headers: {
             'Content-Type': 'application/json',
-        }
+        },
+        credentials: 'include',
     };
 
     const accessToken = getAccessToken();

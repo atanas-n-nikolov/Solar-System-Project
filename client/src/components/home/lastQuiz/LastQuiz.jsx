@@ -16,12 +16,12 @@ export default function LastQuiz({ latestQuiz }) {
                     </section>
 
                     <aside className="flex flex-col max-w-[400px] min-h-[200px] gap-[2em] items-center !p-[1.5em] rounded-[0.5em] text-center card-shadow">
-                        <h2>{t('latestQuiz.h2')}</h2>
+                        <h2 className="text-[1.3em] font-bold">{t('latestQuiz.h2')}</h2>
                         <div className="bg-[#eaf1f9] !pt-[1em] !pb-[1em] !pl-[1.4em] !pr-[1.4em] rounded-[0.8em] w-[350px] text-left">
                             <h3 className="text-[#333] text-[1.4em] !mb-[0.5em] font-bold">{latestQuiz.title[currentLang]}</h3>
                             <p className="text-[#666] text-[1.1em] leading-[1.6] !mb-[1em]">{t('latestQuiz.p2')} {latestQuiz.category[currentLang]}</p>
                         </div>
-                        <Link to={`/quiz?category=${latestQuiz.category}`} className="action-btn">{t('latestQuiz.btn2')}</Link>
+                        <Link to={`/quiz?category=${latestQuiz.category['en']}`} className="action-btn">{t('latestQuiz.btn2')}</Link>
                     </aside>
                 </>
             ) : (

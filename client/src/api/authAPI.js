@@ -7,7 +7,7 @@ const baseUrl = import.meta.env.VITE_API_URL
   : 'http://localhost:3000';
   
 export const useRegister = () => {
-    const register = async (firstName, lastName, email, password, rePassword) => {
+    const register = async ( firstName, lastName, email, password, rePassword ) => {
         try {
             const response = await request.post(`${baseUrl}/register`, { firstName, lastName, email, password, rePassword });
             return response;

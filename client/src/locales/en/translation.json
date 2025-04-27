@@ -28,6 +28,23 @@
         "noFactMessage": "Oops! It seems there’s no fact available for today.",
         "noFactAddedYet": "Check back tomorrow for a fresh new fact!"
     },
+    "details": {
+        "h3": "Fact for ",
+        "span1": "Type:",
+        "span2": "Distance to Sun:",
+        "span3": "Size:",
+        "span4": "Moons:",
+        "span5": "Years:",
+        "span6": "Atmosphere:",
+        "span7": "Namesake:"
+    },
+    "quiz": {
+        "h1": "Quiz Quest",
+        "p1": "Welcome, space traveler! Prepare to embark on a journey across galaxies of knowledge. Choose your mission and begin your quest!",
+        "h2": "Mission",
+        "p2": "Questions",
+        "btn": "Launch Mission"
+    },
     "latestQuiz": {
         "h1": "Welcome, Space Traveler!",
         "p1": "Ready to test your knowledge across the cosmos? Embark on a thrilling journey through quizzes of all levels, from the basics of space exploration to the mysteries of distant galaxies. Challenge yourself with different missions and see how far you can go! Answer questions, earn points, and rise through the ranks as you prove your knowledge. Whether you're a Cadet or an experienced Explorer, there's always a new mission to conquer and a higher rank to achieve. Track your progress, compete with others, and see who leads the cosmic leaderboard! Choose your mission, get ready, and launch it!",
@@ -37,5 +54,28 @@
         "btn2": "Start Mission",
         "noQuizMessage": "Oops, no quizzes available for today. Please check back later!",
         "noQuizAddedYet": "We're working on adding new quizzes. Come back soon for exciting challenges!"
+    },
+    "forms": {
+        "emptyFields": "All fields required.",
+        "firstName": "Firstname should be at least 3 characters long",
+        "lastName": "Lastname should be at least 3 characters long",
+        "emailRegex": "Please enter a valid email address",
+        "email": "Email should be at least 5 characters long",
+        "passRegex": "Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.",
+        "password": "Password is required.",
+        "passMatch": "Password missmatch!",
+        "duplicateKeyError": "Email address is already in use.",
+        "registerLegend": "Sign up",
+        "loginLegend": "Login",
+        "labelFirstName": "First name:",
+        "labelLastName": "Last name:",
+        "labelEmail": "Email:",
+        "labelPassword": "Password:",
+        "labelRePassword": "Repeat password:",
+        "registerP1": "Already have an account?",
+        "registerP2": "Click here to login",
+        "loginP1": "You don't have an account?",
+        "loginP2": "Click here to sign up",
+        "invalidCredentials": "Invalid email or password"
     }
 }

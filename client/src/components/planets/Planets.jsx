@@ -71,15 +71,15 @@ const planets = [
 
 export default function Planets() {
     return (
-        <section className="flex flex-col items-center justify-center !pt-[2em] !pb-[2em]">
-            <h1 className="text-[2em] font-bold text-center">Solar System Planets</h1>
-
-            <section className="flex items-center justify-center !mb-[2em]">
+        <section className="max-w-[1400px] !m-auto flex flex-col items-start justify-center !pt-[2em] !pb-[2em]">
+            <section className="flex items-center justify-around !p-[1em] gap-[1em]">
                 <img className="w-[15%]" src="images/planets-image.png" alt="planets-image" />
-                <p className="max-w-[40ch] text-[1.1em] text-[#333] !mb-[1em] text-center italic">Welcome, cosmic explorer! Prepare to venture through the vast wonders of our solar system. Discover the secrets of each planet and explore their unique characteristics. Select your planet and begin your celestial journey!</p>
+                <section>
+                    <h1 className="text-[2em] font-bold !mb-[0.5em]">Solar System Planets</h1>
+                    <p className="max-w-[90ch] text-[1.1em] text-[#333] !mb-[1em] italic">Welcome, cosmic explorer! Prepare to venture through the vast wonders of our solar system. Discover the secrets of each planet and explore their unique characteristics. Select your planet and begin your celestial journey!</p>
+                </section>
             </section>
-
-            <section className="flex justify-around items-center flex-wrap gap-[2em] !ml-auto !mr-auto max-w-[1400px] !mb-[3em]">
+            <section className="flex justify-around items-center flex-wrap gap-[2em] !ml-auto !mr-auto !mb-[3em]">
                 {planets.length > 0 ? (
                     planets.map(planet => (
                         <article key={planet._id} className="bg-white rounded-[0.5em] overflow-hidden w-[400px] !p-[1.3em] c-planet">

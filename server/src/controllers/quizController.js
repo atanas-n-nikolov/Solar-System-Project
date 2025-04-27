@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { isAdmin, isAuth } from "../middleware/authMiddleware.js";
-import i18next from '../i18n.js';
 import asyncHandler from "../utils/asyncHandler.js";
 import Quiz from '../models/Quiz.js';
 
@@ -14,7 +13,7 @@ quizController.get('/quiz', isAuth, asyncHandler(async (req, res) => {
     const userRole = req.user.role;
 
     if (type && !validTypes.includes(type)) {
-        return res.status(400).json({ message: i18next.t('invalidType') });
+        return res.status(400).json({ message: 'Invalid type' });
     }
 
     if (type === 'all' && userRole === ADMIN_ROLE) {
@@ -53,13 +52,13 @@ quizController.get('/quiz', isAuth, asyncHandler(async (req, res) => {
         const quizzes = await Quiz.find({ category });
 
         if (quizzes.length === 0) {
-            return res.status(404).json({ message: i18next.t('noQuizzesInCategory', { category }) });
+            return res.status(404).json({ message: 'No quizzes found in this category' });
         }
 
         return res.status(200).json(quizzes);
     }
 
-    return res.status(400).json({ message: i18next.t('invalidQuery') });
+    return res.status(400).json({ message: 'Invalid query' });
 }));
 
 quizController.post('/quiz/create', isAuth, isAdmin, asyncHandler(async (req, res) => {
@@ -69,25 +68,25 @@ quizController.post('/quiz/create', isAuth, isAdmin, asyncHandler(async (req, re
     let optionsArray = Array.isArray(options) ? options : options.split(',').map(option => option.trim());
 
     if (!title || !category || !optionsArray || !correctAnswer) {
-        return res.status(400).json({ message: i18next.t('missingFields') });
+        return res.status(400).json({ message: 'Missing fields' });
     }
 
     if (optionsArray.length < 2) {
-        return res.status(400).json({ message: i18next.t('atLeastTwoOptions') });
+        return res.status(400).json({ message: 'At least two options required' });
     }
 
     if (!optionsArray.includes(correctAnswer)) {
-        return res.status(400).json({ message: i18next.t('correctAnswerMustBeOption') });
+        return res.status(400).json({ message: 'Correct answer must be one of the options' });
     }
 
     if (new Set(optionsArray).size !== optionsArray.length) {
-        return res.status(400).json({ message: i18next.t('optionsMustBeUnique') });
+        return res.status(400).json({ message: 'Options must be unique' });
     }
 
     const quiz = await Quiz.create({ title, category, options: optionsArray, correctAnswer, ownerId });
 
     return res.status(201).json({
-        message: i18next.t('quizCreated'),
+        message: 'Quiz created successfully',
         quiz,
     });
 }));
@@ -95,25 +94,24 @@ quizController.post('/quiz/create', isAuth, isAdmin, asyncHandler(async (req, re
 quizController.put('/quiz/:quizId/edit', isAuth, isAdmin, asyncHandler(async (req, res) => {
     const quizId = req.params.quizId;
     const { title, category, options, correctAnswer } = req.body;
-    const ownerId = req.user._id;
 
-    if (!title || !category || !options || !correctAnswer || !quizId || !ownerId) {
-        return res.status(400).json({ message: i18next.t('missingFields') });
+    if (!title || !category || !options || !correctAnswer || !quizId) {
+        return res.status(400).json({ message: 'Missing fields' });
     }
 
     const quiz = await Quiz.findById(quizId);
     if (!quiz) {
-        return res.status(404).json({ message: i18next.t('quizNotFound') });
+        return res.status(404).json({ message: 'Quiz not found' });
     }
 
     const updatedQuiz = await Quiz.findByIdAndUpdate(quizId, { title, category, options, correctAnswer }, { new: true });
 
-    if(updatedQuiz) {
-        return res.status(404).json({ message: i18next.t('updateQuizFailed') });
-    };
+    if (!updatedQuiz) {
+        return res.status(404).json({ message: 'Failed to update quiz' });
+    }
 
     return res.status(200).json({
-        message: i18next.t('updateQuiz'),
+        message: 'Quiz updated successfully',
         updatedQuiz,
     });
 }));
@@ -124,10 +122,10 @@ quizController.delete('/quiz/:quizId/delete', isAuth, isAdmin, asyncHandler(asyn
     const quiz = await Quiz.findByIdAndDelete(quizId);
 
     if (!quiz) {
-        return res.status(404).json({ message: i18next.t('quizNotFound') });
+        return res.status(404).json({ message: 'Quiz not found' });
     }
 
-    return res.status(200).json({ message: i18next.t('quizDeleted') });
+    return res.status(200).json({ message: 'Quiz deleted successfully' });
 }));
 
 export default quizController;

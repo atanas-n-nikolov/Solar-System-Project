@@ -22,8 +22,8 @@ const dayFactsSchema = new Schema({
     },
     bg: {
       type: String,
-      minLength: [5, 'Fact title should be at least 5 characters long.'],
-      required: [true, 'Fact title is required.'],
+      minLength: [5, 'Заглавието на факта трябва да бъде поне 5 символа.'],
+      required: [true, 'Заглавието на факта е задължително.'],
     }
   },
   description: {
@@ -34,8 +34,8 @@ const dayFactsSchema = new Schema({
     },
     bg: {
       type: String,
-      minLength: [10, 'Fact description should be at least 10 characters long.'],
-      required: [true, 'Fact description is required.'],
+      minLength: [10, 'Описанието на факта трябва да бъде поне 10 символа.'],
+      required: [true, 'Описанието на факта е задължително.'],
     }
   },
   ownerId: {

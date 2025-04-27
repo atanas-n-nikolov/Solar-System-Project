@@ -4,7 +4,6 @@ import User from "../models/User.js";
 import Planets from "../models/Planets.js";
 import userService from "../services/userService.js";
 import asyncHandler from '../utils/asyncHandler.js';
-import i18next from '../i18n.js';
 
 const userController = Router();
 
@@ -12,10 +11,16 @@ userController.post('/register', asyncHandler(async (req, res) => {
     const { firstName, lastName, email, password, rePassword } = req.body;
 
     if (!email || !password || !firstName || !lastName) {
-        return res.status(400).json({ message: i18next.t('missingFields') });
+        return res.status(400).json({ message: 'All fields are required.' });
+    };
+
+    if (password !== rePassword) {
+        const error = new Error('passwordsDoNotMatch');
+        error.statusCode = 400;
+        throw error;
     }
 
-    const user = await userService.register(firstName, lastName, email, password, rePassword);
+    const user = await userService.register(firstName, lastName, email, password);
     return res.status(201).json(user);
 }));
 
@@ -23,7 +28,7 @@ userController.post('/login', asyncHandler(async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-        return res.status(400).json({ message: i18next.t('missingFields') });
+        return res.status(400).json({ message: 'All fields are required.' });
     }
 
     const user = await userService.login(email, password);
@@ -34,8 +39,11 @@ userController.get('/profile/:userId', isAuth, asyncHandler(async (req, res) => 
     const userId = req.params.userId;
 
     const user = await User.findById(userId);
+    
     if (!user) {
-        return res.status(404).json({ message: i18next.t('userNotFound') });
+        const error = new Error('userNotFound');
+        error.statusCode = 404;
+        throw error;
     }
 
     const planets = await Planets.find({ 'comments.user': userId })
@@ -74,7 +82,7 @@ userController.put('/profile/:userId/score', isAuth, asyncHandler(async (req, re
     const updatedUser = await userService.updateUser(userId, updateData);
 
     if (!updatedUser) {
-        return res.status(404).json({ message: i18next.t('userNotFound') });
+        return res.status(404).json({ message: 'User not found.' });
     }
 
     return res.status(200).json(updatedUser);
@@ -85,34 +93,34 @@ userController.put('/profile/:userId/edit', isAuth, asyncHandler(async (req, res
     const updateData = req.body;
 
     if (req.user.id !== userId) {
-        return res.status(403).json({ message: i18next.t('accessDenied') });
+        return res.status(403).json({ message: 'Access denied.' });
     }
 
     const updatedUser = await userService.updateUser(userId, updateData);
 
     if (!updatedUser) {
-        return res.status(404).json({ message: i18next.t('userNotFound') });
+        return res.status(404).json({ message: 'User not found.' });
     }
 
     return res.status(200).json({
-            message: i18next.t('updateUser'),
-            updatedUser,
-        });
+        message: 'User updated successfully.',
+        updatedUser,
+    });
 }));
 
 userController.delete('/profile/:userId', isAuth, asyncHandler(async (req, res) => {
     const userId = req.params.userId;
 
     if (req.user.id !== userId) {
-        return res.status(403).json({ message: i18next.t('accessDenied') });
+        return res.status(403).json({ message: 'Access denied.' });
     }
 
     const user = await User.findByIdAndDelete(userId);
     if (!user) {
-        return res.status(404).json({ message: i18next.t('userNotFound') });
+        return res.status(404).json({ message: 'User not found.' });
     }
 
-    return res.status(200).json({ message: i18next.t('userDeleted') });
+    return res.status(200).json({ message: 'User deleted successfully.' });
 }));
 
 export default userController;

@@ -4,64 +4,142 @@ const planetSchema = new Schema({
   name: {
     en: {
       type: String,
-      minLenght: [3, 'Planet name should be at least 3 characters long.'],
-      required: [true, 'Planet name is required.'],
+      minLength: [3, 'Name should be at least 3 characters long.'],
+      required: [true, 'Name is required.'],
     },
     bg: {
       type: String,
-      minLenght: [3, 'Planet name should be at least 3 characters long.'],
-      required: [true, 'Planet name is required.'],
+      minLength: [3, 'Името трябва да бъде поне 3 символа.'],
+      required: [true, 'Името е задължително.'],
     }
   },
   type: {
     en: {
       type: String,
-      required: [true, 'Planet type is required.'],
+      required: [true, 'Type is required.'],
       enum: {
         values: ['Star', 'Planet'],
-        message: 'Planet type must be one of: Star, Planet',
+        message: 'Type must be one of: Star, Planet',
       }
     },
     bg: {
       type: String,
-      required: [true, 'Planet type is required.'],
+      required: [true, 'Типа е задължителен.'],
       enum: {
-        values: ['Star', 'Planet'],
-        message: 'Planet type must be one of: Star, Planet',
+        values: ['Звезда', 'Планета'],
+        message: 'Типа трябва да е: Звезда, Планета',
       }
     }
   },
+  moons: {
+    en: {
+      type: Number,
+      required: [true, 'Moons is required.'],
+    },
+    bg: {
+      type: Number,
+      required: [true, 'Луната е задължителна.'],
+    }
+  },
+  years: {
+    en: {
+      type: String,
+      required: [true, 'Years is required.'],
+    },
+    bg: {
+      type: String,
+      required: [true, 'Годините са задължителни.'],
+    }
+  },
+  atmosphere: {
+    en: {
+      type: String,
+      required: [true, 'Atmosphere is required.'],
+    },
+    bg: {
+      type: String,
+      required: [true, 'Атмосферата е задължителна.'],
+    }
+  },
+  fact: {
+    en: {
+      type: String,
+      required: [true, 'Fact is required.'],
+    },
+    bg: {
+      type: String,
+      required: [true, 'Фактът е задължителен.'],
+    }
+  },
+  namedAfter: {
+    en: {
+      type: String,
+      required: [true, 'Named after is required.'],
+    },
+    bg: {
+      type: String,
+      required: [true, 'Произхода на името е задължително.'],
+    }
+  },
   image: {
-    type: String,
+    en: {
+      type: String,
     required: [true, 'Image URL is required.'],
     match: [
       /^https?:\/\/.+\.(jpg|jpeg|png|gif|webp|svg)$/i,
-      'Planet image must be a valid URL ending with .jpg, .jpeg, .png, .gif, .webp, or .svg',
+      'Image must be a valid URL ending with .jpg, .jpeg, .png, .gif, .webp, or .svg',
+    ]
+    },
+    bg: {
+      type: String,
+    required: [true, 'Адресът на снимката е задължителен.'],
+    match: [
+      /^https?:\/\/.+\.(jpg|jpeg|png|gif|webp|svg)$/i,
+      'Картинката трябва да бъде валиден URL завършващ на .jpg, .jpeg, .png, .gif, .webp, или .svg',
     ],
+    }
   },
   distanceToSun: {
-    type: String,
-    required: [true, 'Planet distance to Sun is required.'],
+    en: {
+      type: String,
+      required: [true, 'Distance to Sun is required.'],
+    },
+    bg: {
+      type: String,
+      required: [true, 'Разстоянието до Слънцето е задължително.'],
+    }
   },
   size: {
-    type: String,
-    required: [true, 'Planet size is required.'],
+    en: {
+      type: String,
+      required: [true, 'Size is required.'],
+    },
+    bg: {
+      type: String,
+      required: [true, 'Размерът е задължителен.'],
+    }
   },
   description: {
     en: {
       type: String,
-      minLenght: [10, 'Planet description should be at least 10 characters long.'],
-      required: [true, 'Planet description is required.'],
+    minLength: [10, 'Description should be at least 10 characters long.'],
+    required: [true, 'Description is required.'],
     },
     bg: {
       type: String,
-      minLenght: [10, 'Planet description should be at least 10 characters long.'],
-      required: [true, 'Planet description is required.'],
+    minLength: [10, 'Описанието трябва да бъде поне 10 символа.'],
+    required: [true, 'Описанието е задължително.']
     }
   },
   order: {
-    type: Number,
-    required: [true, 'Planet order is required.'],
+    en: {
+      type: Number,
+      required: [true, 'Order is required.']
+    },
+    bg: {
+      type: Number,
+      required: [true, 'Номерът е задължителен.']
+    }
   },
   comments: [
     {

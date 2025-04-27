@@ -4,16 +4,18 @@ import HeroSection from "./heroSection/HeroSection";
 import LastQuiz from "./lastQuiz/LastQuiz";
 import PlanetSlider from "./planetSlider/PlanetSlider";
 import { useHome } from "../../api/homeAPI";
+import ErrorNotification from "../error/ErrorNotification";
 
 export default function Home() {
     const { t } = useTranslation();
     const { data, error, loading} = useHome();
 
     if (loading) return <div>Зареждане...</div>;
-    if (error) return <div>{error}</div>;
+    
 
     return (
         <>
+            {error && <ErrorNotification error={error} />}
             <HeroSection />
             <section className="bg-[#eee]">
                 <div className="mb-[0.6em]">

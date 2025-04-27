@@ -4,8 +4,6 @@ import routes from './routes.js';
 import cors from 'cors';
 import 'dotenv/config';
 import cookieParser from 'cookie-parser';
-import i18next from './i18n.js';
-import i18nextMiddleware from 'i18next-http-middleware';
 import { authMiddleware } from './middleware/authMiddleware.js';
 import getError from './utils/getError.js';
 
@@ -20,7 +18,6 @@ app.use(express.json());
 
 app.use(cookieParser());
 
-app.use(i18nextMiddleware.handle(i18next))
 app.use(authMiddleware);
 
 app.use(routes);
